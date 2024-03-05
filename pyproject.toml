@@ -4,7 +4,7 @@ version = "0.0.1"
 authors = [
   { name = "Douwe den Blanken" }
 ]
-description = "A quick reimplementation of the two datasets ("digits" and "commands") proposed in the paper 'An Investigation of Few-Shot Learning in Spoken Term Classification'"
+description = "A quick reimplementation of the two datasets ('digits' and 'commands') proposed in the paper 'An Investigation of Few-Shot Learning in Spoken Term Classification'"
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
