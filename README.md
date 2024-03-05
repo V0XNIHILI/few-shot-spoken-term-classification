@@ -4,6 +4,12 @@ A quick reimplementation of the two datasets ("digits" and "commands") proposed 
 
 In this version here, the data underneath the original test-train-val splits from the 12-way SpeechCommands task was adhered to for creating the meta-train, meta-val, and meta-test splits.
 
+## Installation
+
+```bash
+pip install git+https://github.com/V0XNIHILI/few-shot-spoken-term-classification
+```
+
 ## License
 
 The license for this code alone is [MIT](LICENSE).
