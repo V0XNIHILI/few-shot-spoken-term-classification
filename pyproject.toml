@@ -1,0 +1,27 @@
+[project]
+name = "few-shot-spoken-term-classification"
+version = "0.0.1"
+authors = [
+  { name = "Douwe den Blanken" }
+]
+description = "A quick reimplementation of the two datasets ("digits" and "commands") proposed in the paper 'An Investigation of Few-Shot Learning in Spoken Term Classification'"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["data", "datasets", "machine learning", "ml", "ai", "pytorch", "torch", "python", "few-shot", "few-shot learning", "meta-learning", "speechcommands", "audio"]
+dependencies = [
+  'torch',
+  'AudioLoader @ git+https://github.com/KinWaiCheuk/AudioLoader.git'
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+"Homepage" = "https://github.com/V0XNIHILI/few-shot-spoken-term-classification"
+"Bug Tracker" = "https://github.com/V0XNIHILI/few-shot-spoken-term-classification/issues"
