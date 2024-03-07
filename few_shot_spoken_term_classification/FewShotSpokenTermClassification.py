@@ -45,10 +45,10 @@ class FewShotSpokenTermClassification(Dataset):
 
         self.task = task
 
+        unknown_words = ['bed',  'dog', 'happy', 'marvin',  'wow']
+
         if self.task == "command":
             train_words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'cat', 'tree', 'house', 'bird', 'visual', 'backward', 'follow', 'forward','learn','sheila']
-
-            unknown_words = ['bed',  'dog', 'happy', 'marvin',  'wow']
 
             test_words = [
                 'yes',
@@ -85,8 +85,6 @@ class FewShotSpokenTermClassification(Dataset):
                 'follow'
             ]
 
-            unknown_words =  ['bed', 'dog', 'happy', 'marvin', 'wow']
-
             test_words = [
                 'zero',
                 'one',
@@ -105,6 +103,8 @@ class FewShotSpokenTermClassification(Dataset):
         if subset == "training" or subset == "validation":
             train_idx_to_word = {idx: word for idx, word in enumerate(train_words)}
 
+            # Make sure that the UNKNOWN and NOISE classes have the same index during training
+            # as they do during testing
             word_in_place_of_unknown = train_idx_to_word[UNKNOWN_LABEL]
             train_idx_to_word[len(train_words)] = word_in_place_of_unknown
             del train_idx_to_word[UNKNOWN_LABEL]
@@ -122,8 +122,6 @@ class FewShotSpokenTermClassification(Dataset):
             self.data = Subset(train_or_val_data, train_or_val_subset)
         elif subset == "testing":
             test_idx_to_word = {idx: word for idx, word in enumerate(test_words)}
-            test_idx_to_word[NOISE_LABEL] = '_silence_'
-            test_idx_to_word[UNKNOWN_LABEL] = '_unknown_'
 
             test_word_to_idx = {word: idx for idx, word in test_idx_to_word.items()}
             test_target_transform = partial(few_shot_target_transform, unknown_words, test_word_to_idx)
