@@ -15,7 +15,7 @@ classifiers = [
 keywords = ["data", "datasets", "machine learning", "ml", "ai", "pytorch", "torch", "python", "few-shot", "few-shot learning", "meta-learning", "speechcommands", "audio"]
 dependencies = [
   'torch',
-  'AudioLoader @ git+https://github.com/KinWaiCheuk/AudioLoader.git'
+  'AudioLoader @ git+https://github.com/V0XNIHILI/AudioLoader.git@patch-1'
 ]
 
 [build-system]
