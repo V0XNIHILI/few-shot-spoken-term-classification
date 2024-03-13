@@ -1,6 +1,6 @@
 [project]
 name = "few-shot-spoken-term-classification"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name = "Douwe den Blanken" }
 ]
@@ -15,7 +15,7 @@ classifiers = [
 keywords = ["data", "datasets", "machine learning", "ml", "ai", "pytorch", "torch", "python", "few-shot", "few-shot learning", "meta-learning", "speechcommands", "audio"]
 dependencies = [
   'torch',
-  'AudioLoader @ git+https://github.com/V0XNIHILI/AudioLoader.git@patch-1'
+  'AudioLoader @ git+https://github.com/KinWaiCheuk/AudioLoader.git@main'
 ]
 
 [build-system]
