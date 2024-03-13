@@ -33,7 +33,7 @@ class FewShotSpokenTermClassification(Dataset):
             root (Union[str, Path]): Path to the directory where the dataset is found or downloaded.
             url (str): The URL to download the dataset from, or the type of the dataset to dowload. Allowed type values are `"speech_commands_v0.01"` and `"speech_commands_v0.02"`
             folder_in_archive (str): The top-level directory of the dataset. (default: `"SpeechCommands"`)
-            transform (Optional[Callable], optional): _description_. Defaults to None.
+            transform (Optional[Callable], optional): Transform to apply to datasets. Defaults to None.
             download (bool, optional): Whether to download the dataset. Defaults to False.
             subset (str, optional): Select a subset of the dataset `["training", "validation", "testing"]`.
                 `"validation"` and "testing" are defined in `"validation_list.txt"` and `"testing_list.txt"`,
@@ -126,7 +126,7 @@ class FewShotSpokenTermClassification(Dataset):
             test_word_to_idx = {word: idx for idx, word in test_idx_to_word.items()}
             test_target_transform = partial(few_shot_target_transform, unknown_words, test_word_to_idx)
 
-            test_data = SPEECHCOMMANDS_12C(root, url, folder_in_archive, download=download, subset='testing', target_transform=test_target_transform)
+            test_data = SPEECHCOMMANDS_12C(root, url, folder_in_archive, download=download, subset='testing', transform=transform, target_transform=test_target_transform)
 
             # Remove the training keywords from the test set
             test_subset = [i for i in range(len(test_data._data)) if test_data._data[i][5] and str(test_data._data[i][3]).split('_')[0] not in train_words]
